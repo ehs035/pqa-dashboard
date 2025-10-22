@@ -2,9 +2,10 @@ import './App.css'
 import { useState } from 'react'
 import MedicalProviderDashboard from './pages/MedicalProviderDashboard'
 import PQADashboard from './pages/PQADashboard'
+import PCPDashboard from './pages/PCPDashboard'
 
 function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'medical' | 'pqa'>('home')
+  const [currentView, setCurrentView] = useState<'home' | 'medical' | 'pqa' | 'pcp'>('home')
 
   if (currentView === 'medical') {
     return <MedicalProviderDashboard />
@@ -12,6 +13,10 @@ function App() {
 
   if (currentView === 'pqa') {
     return <PQADashboard />
+  }
+
+  if (currentView === 'pcp') {
+    return <PCPDashboard />
   }
 
   return (
@@ -26,7 +31,7 @@ function App() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Medical Provider Dashboard */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
             <div className="text-center">
@@ -69,6 +74,29 @@ function App() {
                 className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
                 View PQA Dashboard
+              </button>
+            </div>
+          </div>
+
+          {/* PCP Dashboard */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                PCP Dashboard
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Primary Care Provider portal with patient management, care coordination, and quality tracking
+              </p>
+              <button
+                onClick={() => setCurrentView('pcp')}
+                className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              >
+                View PCP Dashboard
               </button>
             </div>
           </div>
