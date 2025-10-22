@@ -36,7 +36,8 @@ import {
   PieChart,
   BarChart,
   LineChart,
-  DollarSign
+  DollarSign,
+  ArrowLeft
 } from "lucide-react";
 
 const PCPDashboard = () => {
@@ -1053,9 +1054,7 @@ const PCPDashboard = () => {
               onClick={() => window.location.reload()}
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
+              <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium">Back to Home</span>
             </button>
           </div>
